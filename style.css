@@ -171,6 +171,7 @@ section {
     display: block;
     font-weight: 800; /* Bolder subtitle */
     text-align: center;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
 }
 
 /* Buttons */
@@ -262,19 +263,32 @@ nav {
     transform: scale(1.1) rotate(5deg);
 }
 
+.nav-cta {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.9rem;
+    white-space: nowrap;
+    border-radius: 50px;
+}
+
+@media (max-width: 576px) {
+    .nav-actions .nav-cta {
+        display: none;
+    }
+}
+
 [data-theme="dark"] .logo {
     color: var(--color-white);
 }
 
 .nav-links {
     display: flex;
-    gap: var(--spacing-md);
+    gap: 1.2rem;
     list-style: none;
 }
 
 .nav-links a {
     font-weight: 700; /* Bolder nav links */
-    font-size: 1.05rem;
+    font-size: 1rem;
     position: relative;
     color: var(--color-text);
 }
@@ -350,7 +364,7 @@ nav {
 
 .mobile-toggle span {
     width: 30px;
-    height: 2px;
+    height: 3px;
     background-color: var(--color-secondary);
     transition: var(--transition);
 }
@@ -400,7 +414,7 @@ nav {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(to right, rgba(15, 44, 89, 0.85), rgba(15, 44, 89, 0.4));
+    background: linear-gradient(to right, rgba(15, 44, 89, 0.85), rgba(15, 44, 89, 0.6));
     z-index: 0;
 }
 
@@ -409,6 +423,8 @@ nav {
     z-index: 1;
     color: var(--color-white);
     max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
 }
 
 .hero-content h1 {
@@ -425,6 +441,26 @@ nav {
     margin-bottom: var(--spacing-md);
     font-weight: 600; /* Bolder hero description */
     text-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+}
+
+.hero-btns {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    margin-top: var(--spacing-md);
+    justify-content: center;
+}
+
+@media (max-width: 576px) {
+    .hero-btns {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .hero-btns .btn {
+        width: 100%;
+        text-align: center;
+    }
 }
 
 /* About Section */
@@ -464,6 +500,31 @@ nav {
     align-items: center;
 }
 
+.feature-list {
+    list-style: none;
+    margin-bottom: 2rem;
+    text-align: left;
+    display: inline-block;
+}
+
+.feature-list li {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 12px;
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: var(--color-text);
+}
+
+.feature-list i {
+    color: var(--color-primary);
+    font-size: 1.2rem;
+    width: 20px;
+    display: flex;
+    justify-content: center;
+}
+
 /* Portfolio Gallery */
 .portfolio-item {
     display: flex;
@@ -494,6 +555,18 @@ nav {
 .portfolio-overlay {
     padding: var(--spacing-sm) 0;
     color: var(--color-text);
+}
+
+.portfolio-overlay .section-subtitle {
+    display: block;
+    font-family: var(--font-heading);
+    color: var(--color-primary);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
 }
 
 .portfolio-overlay span {
@@ -635,6 +708,12 @@ nav {
     flex: 0 0 45%; /* Stable width to prevent squashing */
     height: 100%;
     min-height: 300px;
+}
+
+.workshop-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .workshop-info {
@@ -844,6 +923,28 @@ footer {
     padding-left: 10px;
 }
 
+.footer-contact-list {
+    list-style: none;
+    text-align: left;
+    display: inline-block;
+}
+
+.footer-contact-list li {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 0.8rem;
+    color: var(--color-footer-text);
+    font-size: 0.95rem;
+}
+
+.footer-contact-list i {
+    color: var(--color-primary);
+    width: 20px;
+    display: flex;
+    justify-content: center;
+}
+
 .footer-bottom {
     padding-top: 2rem;
     border-top: 1px solid rgba(0, 0, 0, 0.05);
@@ -892,29 +993,27 @@ footer {
     }
 }
 
-@media (max-width: 768px) {
-    nav {
-        flex-direction: column;
-        gap: 1rem;
-        padding: 1rem 0;
+@media (max-width: 1200px) {
+    .nav-links {
+        display: none;
     }
 
-    nav .logo {
-        margin: 0 auto;
-    }
-    
     .nav-actions .theme-toggle, 
     .nav-actions .rtl-toggle {
-        display: none; /* Hide toggles from top bar on mobile */
+        display: none;
     }
     
     .mobile-toggle {
         display: flex;
-        position: absolute;
-        right: var(--spacing-md);
-        top: 2rem;
+        z-index: 10000;
     }
-    
+}
+
+@media (max-width: 768px) {
+    nav {
+        justify-content: space-between;
+    }
+
     .hero-content h1 {
         font-size: clamp(2rem, 10vw, 3rem);
         text-align: center;
@@ -939,10 +1038,11 @@ footer {
     }
 
     .about-image img {
-        height: 300px;
+        height: auto;
         width: 100%;
-        max-width: 500px; /* Constrain for better look on tablet */
-        object-fit: cover;
+        max-width: 500px;
+        max-height: 600px;
+        object-fit: contain;
     }
     
     .about-image::before {
@@ -968,7 +1068,7 @@ footer {
 
     .workshop-img {
         width: 100%;
-        height: 350px; /* Increased height for better visibility on tablet/mobile */
+        height: 350px;
         flex: none;
     }
 
@@ -999,7 +1099,7 @@ footer {
     }
 
     .author {
-        white-space: normal; /* Allow wrap on very small screens */
+        white-space: normal;
     }
 
     .contact-grid {
@@ -1021,12 +1121,23 @@ footer {
     height: 100vh;
     background: var(--color-bg);
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     z-index: 9999;
     gap: 1rem;
-    padding: 2rem;
+    padding: 6rem 2rem 2rem;
     overflow-y: auto;
+}
+
+.toggle-active {
+    position: fixed !important;
+    top: 2rem;
+    right: 2rem;
+    z-index: 10001;
+}
+
+.toggle-active span {
+    background-color: var(--color-primary) !important;
 }
 
 .nav-active li {
@@ -1047,8 +1158,6 @@ footer {
 
 .nav-links a.active {
     color: var(--color-primary) !important;
-    border-left: 4px solid var(--color-primary);
-    padding-left: 1.5rem;
 }
 
 /* HIGH PRIORITY DARK MODE OVERRIDES */
