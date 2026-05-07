@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Reveal animations on scroll
-    const revealElements = document.querySelectorAll('section, .about-image, .about-content, .portfolio-item, .restoration-card, .workshop-card');
+    const revealElements = document.querySelectorAll('section, .about-image, .about-content, .portfolio-item, .restoration-card');
     
     const revealCallback = (entries, observer) => {
         entries.forEach(entry => {
