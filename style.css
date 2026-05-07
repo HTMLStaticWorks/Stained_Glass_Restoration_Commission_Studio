@@ -668,6 +668,7 @@ nav {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: var(--spacing-md);
+    align-items: stretch; /* Ensure all cards are same height */
 }
 
 .testimonial-card {
@@ -676,6 +677,10 @@ nav {
     border-radius: var(--border-radius);
     border: 1px solid rgba(0, 0, 0, 0.05);
     box-shadow: var(--shadow-soft);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
 }
 
 .testimonial-card p {
@@ -1081,3 +1086,6 @@ html[data-theme="dark"],
 [data-theme="dark"] p {
     color: #cccccc !important;
 }
+
+ @ m e d i a   ( m a x - w i d t h :   1 0 2 4 p x )   a n d   ( m i n - w i d t h :   7 6 9 p x )   {   . s t o r e - g r i d   {   j u s t i f y - c o n t e n t :   c e n t e r ;   j u s t i f y - i t e m s :   c e n t e r ;   }   }  
+ 
