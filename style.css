@@ -144,7 +144,7 @@ img {
 }
 
 .container {
-    max-width: 1200px;
+    max-width: 1400px;
     margin: 0 auto;
     padding: 0 var(--spacing-md);
 }
@@ -240,19 +240,20 @@ nav {
 .logo {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 10px;
     font-family: var(--font-heading);
-    font-size: 1.8rem;
+    font-size: 1.5rem;
     font-weight: 900;
     color: var(--color-secondary);
     letter-spacing: 1px;
     text-transform: uppercase;
     transition: var(--transition);
+    flex-shrink: 0;
 }
 /* Removed scrolled color change */
 
 #nav-logo {
-    height: 45px;
+    height: 40px;
     width: auto;
     border-radius: 50%;
     transition: var(--transition);
@@ -265,9 +266,13 @@ nav {
 
 .nav-cta {
     padding: 0.6rem 1.2rem;
-    font-size: 0.9rem;
+    font-size: 1rem;
     white-space: nowrap;
     border-radius: 50px;
+    color: var(--color-white) !important;
+    text-decoration: none;
+    text-transform: none;
+    font-family: 'Outfit', sans-serif;
 }
 
 @media (max-width: 576px) {
@@ -282,15 +287,30 @@ nav {
 
 .nav-links {
     display: flex;
-    gap: 1.2rem;
+    flex: 1;
+    justify-content: center;
+    gap: 0.8rem;
     list-style: none;
+    align-items: center;
+    margin: 0 1.5rem;
 }
 
 .nav-links a {
-    font-weight: 700; /* Bolder nav links */
+    font-weight: 700;
     font-size: 1rem;
     position: relative;
     color: var(--color-text);
+    white-space: nowrap;
+}
+
+.nav-cta-container {
+    margin-left: 0.5rem;
+}
+
+@media (max-width: 1200px) {
+    .nav-cta-container {
+        display: none;
+    }
 }
 /* Removed scrolled color change */
 
