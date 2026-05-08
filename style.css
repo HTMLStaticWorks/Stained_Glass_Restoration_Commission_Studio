@@ -188,7 +188,6 @@ section {
     cursor: pointer;
     border: none;
     transition: var(--transition);
-    margin: 0 auto; /* Center in flex parents */
 }
 
 .btn-primary {
@@ -273,6 +272,19 @@ nav {
     text-decoration: none;
     text-transform: none;
     font-family: 'Outfit', sans-serif;
+    position: relative;
+    z-index: 1;
+}
+
+.nav-cta:hover {
+    background-color: var(--color-accent) !important;
+    color: var(--color-white) !important;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(217, 119, 6, 0.3);
+}
+
+.nav-cta::after {
+    display: none !important;
 }
 
 @media (max-width: 576px) {
@@ -465,7 +477,7 @@ nav {
 
 .hero-btns {
     display: flex;
-    gap: 1.5rem;
+    gap: 1rem;
     flex-wrap: wrap;
     margin-top: var(--spacing-md);
     justify-content: center;
@@ -559,10 +571,12 @@ nav {
     border-radius: var(--border-radius);
     width: 100%;
     aspect-ratio: 4 / 3;
+    max-height: 60vh; /* Limit height to fit viewport */
 }
 
 .portfolio-item.large .portfolio-img-wrapper {
     aspect-ratio: 16 / 9;
+    max-height: 70vh; /* Slightly more height for large items but still viewport-safe */
 }
 
 .portfolio-item img {
