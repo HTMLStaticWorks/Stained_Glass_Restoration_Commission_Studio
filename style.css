@@ -263,7 +263,7 @@ nav {
     transform: scale(1.1) rotate(5deg);
 }
 
-.nav-cta {
+.nav-links a.nav-cta {
     padding: 0.6rem 1.2rem;
     font-size: 1rem;
     white-space: nowrap;
@@ -276,7 +276,8 @@ nav {
     z-index: 1;
 }
 
-.nav-cta:hover {
+.nav-links a.nav-cta:hover,
+.nav-links a.nav-cta.active {
     background-color: var(--color-accent) !important;
     color: var(--color-white) !important;
     transform: translateY(-2px);
