@@ -13,26 +13,31 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    const navOverlay = document.getElementById('nav-overlay');
+    const menuClose = document.getElementById('menu-close');
+
+    function closeMenu() {
+        navLinks.classList.remove('nav-active');
+        mobileToggle.classList.remove('toggle-active');
+        navOverlay.classList.remove('active');
+        document.body.style.overflow = 'auto';
+    }
+
     // Mobile menu toggle
     mobileToggle.addEventListener('click', () => {
-        navLinks.classList.toggle('nav-active');
-        mobileToggle.classList.toggle('toggle-active');
-        
-        // Disable body scroll when menu is open
-        if (navLinks.classList.contains('nav-active')) {
-            document.body.style.overflow = 'hidden';
-        } else {
-            document.body.style.overflow = 'auto';
-        }
+        navLinks.classList.add('nav-active');
+        mobileToggle.classList.add('toggle-active');
+        navOverlay.classList.add('active');
+        document.body.style.overflow = 'hidden';
     });
+
+    // Close menu listeners
+    if (menuClose) menuClose.addEventListener('click', closeMenu);
+    if (navOverlay) navOverlay.addEventListener('click', closeMenu);
 
     // Close menu when a link is clicked
     links.forEach(link => {
-        link.addEventListener('click', () => {
-            navLinks.classList.remove('nav-active');
-            mobileToggle.classList.remove('toggle-active');
-            document.body.style.overflow = 'auto';
-        });
+        link.addEventListener('click', closeMenu);
     });
 
     // Reveal animations on scroll
